@@ -3258,6 +3258,8 @@ class NotebookTabLabel(Gtk.HBox):
 
     def close_tab(self, widget):
         notebook = self.widget_.get_parent()
+        if notebook is None:
+            return
         page=notebook.page_num(self.widget_)
         if page >= 0:
             notebook.is_closed = True
