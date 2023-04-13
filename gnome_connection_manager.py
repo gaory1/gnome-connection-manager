@@ -1360,7 +1360,9 @@ class Wmain(SimpleGladeApp):
 
             #esperar 3 seg antes de enviar comandos
             if host.commands!=None and host.commands!='':
-                basetime = 700 if len(host.host)==0 else 3000
+                # basetime = 700 if len(host.host)==0 else 3000
+                # 500ms is enough for most cases, use ##D= to add more
+                basetime = 500
                 lines = []
                 for line in host.commands.splitlines():
                     if line.startswith("##D=") and line[4:].isdigit():
